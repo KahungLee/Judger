@@ -51,9 +51,9 @@ int general_seccomp_rules(struct config *_config) {
         return LOAD_SECCOMP_FAILED;
     }
 
-    if (seccomp_rule_add(ctx, SCMP_ACT_ALLOW, SCMP_SYS(write), 1, SCMP_CMP(0, SCMP_CMP_MASKED_EQ, O_RDWR, O_RDWR)) != 0) {
-        return LOAD_SECCOMP_FAILED;
-    }
+//     if (seccomp_rule_add(ctx, SCMP_ACT_ALLOW, SCMP_SYS(write), 1, SCMP_CMP(0, SCMP_CMP_MASKED_EQ, O_RDWR, O_RDWR)) != 0) {
+//         return LOAD_SECCOMP_FAILED;
+//     }
 
     if (seccomp_load(ctx) != 0) {
         return LOAD_SECCOMP_FAILED;
