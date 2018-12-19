@@ -37,9 +37,9 @@ int general_seccomp_rules(struct config *_config) {
         return LOAD_SECCOMP_FAILED;
     }
     // do not allow "w" and "rw" using open
-    if (seccomp_rule_add(ctx, SCMP_ACT_KILL, SCMP_SYS(open), 1, SCMP_CMP(1, SCMP_CMP_MASKED_EQ, O_WRONLY, O_WRONLY)) != 0) {
-        return LOAD_SECCOMP_FAILED;
-    }
+//     if (seccomp_rule_add(ctx, SCMP_ACT_KILL, SCMP_SYS(open), 1, SCMP_CMP(1, SCMP_CMP_MASKED_EQ, O_WRONLY, O_WRONLY)) != 0) {
+//         return LOAD_SECCOMP_FAILED;
+//     }
     if (seccomp_rule_add(ctx, SCMP_ACT_KILL, SCMP_SYS(open), 1, SCMP_CMP(1, SCMP_CMP_MASKED_EQ, O_RDWR, O_RDWR)) != 0) {
         return LOAD_SECCOMP_FAILED;
     }
